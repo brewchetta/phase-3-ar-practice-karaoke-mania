@@ -11,7 +11,7 @@ class KaraokeSinger < ActiveRecord::Base
   end
 
   def songs_by_artist(artist_name)
-    self.songs.map { |song| song.artist_name }.uniq
+    self.songs.where("artist_name = ?", artist)
   end
 
   def drinks_tab(price_per_drink)
